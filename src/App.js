@@ -3,60 +3,20 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Header from './components/header/header';
 import Home from './components/home/home';
+import Expert from './components/expert/expert';
 
 const App = () => {
   return (
-    <div>
-      <Header />
+    <Router>
+      <div>
+        <Header />
 
-      <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-
-          <hr />
-
+        <div className="container">
           <Route exact path="/" component={Home} />
+          <Route exact path="/expert" component={Expert} />
         </div>
-      </Router>
-    </div>
-  );
-}
-
-function Topics({ match }) {
-  return (
-    <div>
-      <h2>Topics</h2>
-      <ul>
-        <li>
-          <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-        </li>
-      </ul>
-
-      <Route path={`${match.path}/:topicId`} component={Topic} />
-      <Route
-        exact
-        path={match.path}
-        render={() => <h3>Please select a topic.</h3>}
-      />
-    </div>
-  );
-}
-
-function Topic({ match }) {
-  return (
-    <div>
-      <h3>{match.params.topicId}</h3>
-    </div>
+      </div>
+    </Router>
   );
 }
 
