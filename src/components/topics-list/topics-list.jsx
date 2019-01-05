@@ -47,8 +47,6 @@ class TopicsList extends Component {
     render() {
         const { topics } = this.state;
 
-        console.log(topics);
-
         return (
             <div>
                 <h3>Popular Topics</h3>
@@ -56,6 +54,8 @@ class TopicsList extends Component {
                 {topics.map(topic =>
                     <Topic topic={topic} key={topic.id} />
                 )}
+
+                <p>{JSON.stringify(topics)}</p>
             </div>
         );
     }
