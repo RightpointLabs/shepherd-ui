@@ -8,7 +8,7 @@ import Expert from './components/expert/expert';
 const App = () => {
   return (
     <Router>
-      <div>
+      <div id="body">
         <Header />
 
         <div className="container">
