@@ -6,6 +6,8 @@ const Topic = ({ topic }) => {
             <div className="card-body">
                 <h5>{topic.name}</h5>
                 <p>Votes: {topic.votes}</p>
+
+                <p>{JSON.stringify(topic)}</p>
             </div>
         </div>
     );
