@@ -1,9 +1,64 @@
-import React from "react";
+import React, { Component } from 'react';
 
-const TopicsList = () => {
-    return (
-        <h3>Popular Topics</h3>
-    );
-};
+import Topic from '../topic/topic';
+
+class TopicsList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            "topics": []
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            "topics": [
+                {
+                    "id": 1,
+                    "name": "How does dependency injection work?",
+                    "events": [
+                        {
+                            "id": 1
+                        },
+                        {
+                            "id": 2
+                        },
+                        {
+                            "id": 3
+                        }
+                    ],
+                    "votes": 28
+                },
+                {
+                    "id": 2,
+                    "name": "Containerize an app",
+                    "events": [
+                        {
+                            "id": 4
+                        }
+                    ],
+                    "votes": 16
+                }
+            ]
+        });
+    }
+
+    render() {
+        const { topics } = this.state;
+
+        console.log(topics);
+
+        return (
+            <div>
+                <h3>Popular Topics</h3>
+
+                {topics.map(topic =>
+                    <Topic topic={topic} key={topic.id} />
+                )}
+            </div>
+        );
+    }
+}
 
 export default TopicsList;
