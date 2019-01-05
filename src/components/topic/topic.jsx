@@ -2,10 +2,11 @@ import React from "react";
 
 const Topic = ({ topic }) => {
     return (
-        <div>
-            <h2>{topic.name}</h2>
-
-            <p>Votes: {topic.votes}</p>
+        <div className="card">
+            <div className="card-body">
+                <h5>{topic.name}</h5>
+                <p>Votes: {topic.votes}</p>
+            </div>
         </div>
     );
 };
