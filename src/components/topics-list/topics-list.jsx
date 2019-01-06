@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import AddTopic from '../add-topic/add-topic';
 import Topic from '../topic/topic';
 
 class TopicsList extends Component {
@@ -49,6 +50,8 @@ class TopicsList extends Component {
 
         return (
             <div>
+                <AddTopic />
+
                 <h3>Popular Topics</h3>
 
                 {topics.map(topic =>
