@@ -14,11 +14,18 @@ class TopicsList extends Component {
         this.addTopic = this.addTopic.bind(this);
     }
 
-    addTopic(topic) {
+    addTopic({ name, successCriteria }) {
         const id = Math.max(...this.state.topics.map(x => x.id)) + 1;
 
         this.setState({
-            "topics": this.state.topics.concat(Object.assign({ id }, topic))
+            topics: this.state.topics.concat(
+                Object.assign({
+                    id,
+                    name: null,
+                    successCriteria: null,
+                    events: [],
+                    votes: 0
+                }, { name, successCriteria }))
         });
     }
 
