@@ -10,6 +10,16 @@ class TopicsList extends Component {
         this.state = {
             "topics": []
         };
+
+        this.addTopic = this.addTopic.bind(this);
+    }
+
+    addTopic(topic) {
+        const id = Math.max(...this.state.topics.map(x => x.id)) + 1;
+
+        this.setState({
+            "topics": this.state.topics.concat(Object.assign({ id }, topic))
+        });
     }
 
     componentDidMount() {
@@ -50,7 +60,7 @@ class TopicsList extends Component {
 
         return (
             <div>
-                <AddTopic />
+                <AddTopic addTopicHandler={this.addTopic} />
 
                 <h3>Popular Topics</h3>
 
